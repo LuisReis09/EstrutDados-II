@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EDAII - WikiArt (AVL)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 80vw 20vw;
+        }
+
+        .coluna-esquerda {
+            display: grid;
+            grid-template-rows: 100vh 50vh 25vh;
+            gap: 0px;
+            padding: 0px;
+        }
+
+        .linha-superior {
+            background: #f0f0f0;
+            padding: 0px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+
+        .linha-meio {
+            display: grid;
+            padding: 0px;
+            grid-template-columns: 1fr  1fr;
+            gap: 10px;
+            margin: 5px;
+        }
+
+        .linha-inferior {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+            padding: 0px;
+            margin: 5px;
+		}
+
+        .celula {
+            background: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .coluna-direita {
+            font-family: Arial;
+            padding: 10px;
+            height: 100vh;
+            margin: 0px;
+            font-size: calc(0.5em + 0.8vw);
+            max-width: 95%;
+        }
+        .container {
+            background: #f0f0f0;
+            padding: 0px;
+			width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: panning 45s infinite linear;
+            overflow: hidden;
+            position: relative;
+            cursor: context-menu; 
+        }
+
+        @keyframes panning {
+            0% {
+                background-position: 0% 0%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        @media (hover: none) {
+            .overlay {
+                opacity: 0.8;
+            }
+        }
+
+		.overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: rgba(0, 0, 0, 0.75);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            backdrop-filter: blur(5px);
+            text-align: left;
+            max-height: 25%;
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            line-height: 1.0;
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+		    transition-delay: 0.2s;
+        }
+
+        .overlay-text {
+            font-family: Arial;
+            font-size: calc(0.5em + 0.75vw);
+            padding: 3px;
+            max-width: 95%;
+        }
+    </style>
+</head>
+<body>
+    <div class="coluna-esquerda">
+        <div class="linha-superior">
+    		[arte-principal]
+    	</div>
+    	
+        <div class="linha-meio">
+    		[arte-relacionada-1]
+		</div>
+		
+        <div class="linha-inferior">
+    		[arte-relacionada-2]
+        </div>
+    </div>
+
+    <div class="coluna-direita">
+        <div align="center"><b>.: WikiArt :.</b></div>
+        <hr>
+        <br>
+        <div>
+        	[texto-log]
+        </div>
+    </div>
+</body>
+</html>
